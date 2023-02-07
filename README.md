@@ -1,0 +1,30 @@
+# NAME
+
+App::AWS::CloudWatch::Monitor::Check::MailQueue - gather mail queue count
+
+# SYNOPSIS
+
+    my $plugin  = App::AWS::CloudWatch::Monitor::Check::MailQueue->new();
+    my $metrics = $plugin->check();
+
+    aws-cloudwatch-monitor --check MailQueue
+
+# DESCRIPTION
+
+`App::AWS::CloudWatch::Monitor::Check::MailQueue` is a [App::AWS::CloudWatch::Monitor::Check](https://metacpan.org/pod/App::AWS::CloudWatch::Monitor::Check) module which gathers current mail queue count.
+
+# METRICS
+
+Data for this check is read from [mailq(1)](http://man.he.net/man1/mailq).  The following metrics are returned.
+
+- mail-Queue
+
+# METHODS
+
+- check
+
+    Gathers the metric data and returns an arrayref of hashrefs with keys `MetricName`, `Unit`, `RawValue`.
+
+# DEPENDENCIES
+
+`App::AWS::CloudWatch::Monitor::Check::MailQueue` depends on the external program, [mailq(1)](http://man.he.net/man1/mailq).
